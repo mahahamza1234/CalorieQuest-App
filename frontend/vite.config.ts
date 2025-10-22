@@ -7,12 +7,16 @@ export default defineConfig(() => ({
   server: {
     host: "::",
     port: 5137,
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1:5000",
+        changeOrigin: true,
+      },
+    },
   },
   plugins: [
     dyadComponentTagger(),
-    react({
-      jsxRuntime: "classic",
-    }),
+    react(),
   ],
   resolve: {
     alias: {
