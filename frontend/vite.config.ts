@@ -14,6 +14,11 @@ export default defineConfig(() => ({
       },
     },
   },
+  preview: {
+    host: "0.0.0.0",
+    port: 3000,
+    allowedHosts: ["caloriequest-app.onrender.com"],
+  },
   plugins: [
     dyadComponentTagger(),
     react(),
