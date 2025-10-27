@@ -8,6 +8,7 @@ CORS(app)
 import os
 
 # --- MongoDB Connection ---
+# Use environment variable for Mongo URI in production, with a fallback for local development
 MONGO_URI = os.environ.get("MONGO_URI", "mongodb+srv://mahakhalid_db_user:mwQGpfNd2wA7PREB@cluster0.wq9siz.mongodb.net/?retryWrites=true&w=majority")
 DB_NAME = "pakistan_food_app"
 
@@ -82,5 +83,7 @@ def get_restaurants():
 
 
 if __name__ == '__main__':
+    # Port is set by the deployment environment, default to 5000 for local
     port = int(os.environ.get('PORT', 5000))
+    # Bind to 0.0.0.0 to be accessible from outside the container
     app.run(host='0.0.0.0', port=port, debug=True)
