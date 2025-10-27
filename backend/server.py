@@ -5,8 +5,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+import os
+
 # --- MongoDB Connection ---
-MONGO_URI = "mongodb+srv://mahakhalid_db_user:mwQGpfNd2wA7PREB@cluster0.wq9siz.mongodb.net/?retryWrites=true&w=majority"
+MONGO_URI = os.environ.get("MONGO_URI", "mongodb+srv://mahakhalid_db_user:mwQGpfNd2wA7PREB@cluster0.wq9siz.mongodb.net/?retryWrites=true&w=majority")
 DB_NAME = "pakistan_food_app"
 
 client = MongoClient(MONGO_URI)
