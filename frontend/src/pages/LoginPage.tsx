@@ -16,7 +16,8 @@ const LoginPage = () => {
       const userProfile = { name, email, weight: parseFloat(weight) };
 
       try {
-        const response = await fetch("/api/user", {
+        const apiUrl = process.env.VITE_API_BASE_URL || '';
+        const response = await fetch(`${apiUrl}/api/user`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
