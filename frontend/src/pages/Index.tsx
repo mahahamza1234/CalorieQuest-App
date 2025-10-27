@@ -49,8 +49,9 @@ const Index = () => {
     setError(null);
 
     try {
+      const apiUrl = process.env.VITE_API_BASE_URL || '';
       const response = await fetch(
-        `http://127.0.0.1:5000/api/restaurants/nearby?postal_code=${postalCode}&radius=${distance}`
+        `${apiUrl}/api/restaurants/nearby?postal_code=${postalCode}&radius=${distance}`
       );
       const data = await response.json();
 
