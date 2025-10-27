@@ -1,0 +1,12 @@
+services:
+  - name: frontend
+    build_command: npm install && npm run build
+    start_command: npm run start
+    port: 3000
+    type: web
+    static_dir: dist
+  - name: backend
+    build_command: pip install -r requirements.txt
+    start_command: python server.py
+    port: 5000
+    type: web
